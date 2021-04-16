@@ -10,7 +10,6 @@ export default function (app: Express) {
     res.sendFile(process.cwd() + "/uploads/" + filename);
   })
 
-
   register(app);
   // children(app);
 }

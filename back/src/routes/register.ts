@@ -6,6 +6,7 @@ import {Parent} from "../entity/users/Parent";
 import Tutor from "../entity/users/Tutor";
 import multer from "multer";
 import {Section} from "../entity/Section";
+import AbstractEntity from "../entity/AbstractEntity";
 
 //TODO: Move to separate file
 const users = [Child, Parent, Tutor];
@@ -50,49 +51,64 @@ export default function (app: Express) {
     res.sendStatus(404);
   })
 
-  app.post("/register/child", async (req, res) => {
-    const childInput: Child = req.body;
+  for (const entity of users) {
+    app.post("/register/" + entity.name.toLowerCase(), async (req, res) => {
+      const input: AbstractEntity = req.body;
 
-    if (await entityNotExist(getRepository(Child), childInput.id, res)) {
-      try {
-        const child = await Child.create(childInput).save();
-        res.status(201).send(child);
-      } catch (err) {
-        processErr(err, res);
+      if (await entityNotExist(getRepository(entity), input.id, res)) {
+        try {
+          const record = await entity.create(input).save();
+          res.status(201).send(record);
+        } catch (err) {
+          processErr(err, res);
+        }
       }
-    }
-  })
+    })
+  }
+
+  // app.post("/register/child", async (req, res) => {
+  //   const childInput: Child = req.body;
+  //
+  //   if (await entityNotExist(getRepository(Child), childInput.id, res)) {
+  //     try {
+  //       const child = await Child.create(childInput).save();
+  //       res.status(201).send(child);
+  //     } catch (err) {
+  //       processErr(err, res);
+  //     }
+  //   }
+  // })
 
 
-  app.post("/register/parent", async (req, res) => {
-    const parentInput: Parent = req.body;
+  // app.post("/register/parent", async (req, res) => {
+  //   const parentInput: Parent = req.body;
+  //
+  //   const parent = await Parent.findOne(parentInput.id);
+  //   if (parent !== undefined) {
+  //     res.status(409).send(`User with id ${parent.id} already exist!`)
+  //   }
+  //
+  //   try {
+  //     const parent = await Parent.create({...parentInput, children: []}).save();
+  //     res.status(201).send(parent);
+  //   } catch (err) {
+  //     processErr(err, res);
+  //   }
+  // })
 
-    const parent = await Parent.findOne(parentInput.id);
-    if (parent !== undefined) {
-      res.status(409).send(`User with id ${parent.id} already exist!`)
-    }
 
-    try {
-      const parent = await Parent.create({...parentInput, children: []}).save();
-      res.status(201).send(parent);
-    } catch (err) {
-      processErr(err, res);
-    }
-  })
-
-
-  app.post("/register/tutor", async (req, res) => {
-    const tutorInput: Tutor = req.body;
-
-    if (await entityNotExist(getRepository(Tutor), tutorInput.id, res)) {
-      try {
-        const tutor = await Tutor.create(tutorInput).save();
-        res.status(201).send(tutor);
-      } catch (err) {
-        processErr(err, res);
-      }
-    }
-  });
+  // app.post("/register/tutor", async (req, res) => {
+  //   const tutorInput: Tutor = req.body;
+  //
+  //   if (await entityNotExist(getRepository(Tutor), tutorInput.id, res)) {
+  //     try {
+  //       const tutor = await Tutor.create(tutorInput).save();
+  //       res.status(201).send(tutor);
+  //     } catch (err) {
+  //       processErr(err, res);
+  //     }
+  //   }
+  // });
 
 
   app.post("/register/section", upload.fields([{name: "payment", maxCount: 1}, {name: "cover", maxCount: 1}]),
