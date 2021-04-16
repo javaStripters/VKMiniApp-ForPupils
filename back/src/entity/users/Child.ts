@@ -1,6 +1,7 @@
-import {Column, Entity, ManyToMany} from "typeorm";
+import {Column, Entity, JoinTable, ManyToMany} from "typeorm";
 import {User} from "./User";
 import {Parent} from "./Parent";
+import {Section} from "../Section";
 
 @Entity()
 export class Child extends User {
@@ -11,4 +12,8 @@ export class Child extends User {
     // cascade: ['update'],
   })
   parents: Parent[];
+
+  @JoinTable()
+  @ManyToMany(() => Section, section => section.children)
+  sections: Section[];
 }
