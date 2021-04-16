@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Panel,
   Group, 
   Placeholder, 
   Div,
@@ -9,7 +10,10 @@ import {
 const ChooseRole = (props) => {
 
   return(
-    <Group>
+  <Panel>
+      <div class="curved-block-before"></div>
+      <div class="curved-block"></div>
+      <Group>
         <Placeholder
           //icon={<Icon56UsersOutline />}
           header={<p>{props.firstName}, добро пожаловать в {'{Название приложения}'}</p>}
@@ -56,6 +60,7 @@ const ChooseRole = (props) => {
           </Div>
         </Group>
       </Group>
+  </Panel>
   )
 }
 
