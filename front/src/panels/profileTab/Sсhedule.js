@@ -1,7 +1,13 @@
 import { SimpleCell, Button, Card, Separator, Header, Title, Div, Panel, Group, PanelHeader, PanelHeaderBack } from '@vkontakte/vkui'
-import React from 'react'
+import React, {useState} from 'react'
 
 const Schedule = (props) => {
+
+  const [CurrentObject, setCurrentObject] = useState ('Программирование на Python')
+  const [CurrentDate, setCurrentDate] = useState ('14 апреля, среда')
+  const [CurrentSchedule, setCurrentSchedule] = useState ('pererivchik na obed')
+  const [CurrentTeacher, setCurrentTeacher] = useState ('Данил Даньшин')
+
   return (
     <Panel>
       <PanelHeader
@@ -19,7 +25,7 @@ const Schedule = (props) => {
       <Div>
         <Group>
           {/* Вывод тайтла в зависимости от выбранной секции */}
-          <Title level="1" weight="semibold">Программирование</Title> 
+          <Title level="1" weight="semibold">{CurrentObject}</Title> 
             <Div style={{ 
               padding:'0px',
               marginTop:'10px', 
@@ -37,7 +43,7 @@ const Schedule = (props) => {
                 fontSize:'18px' 
                 }}
               >
-                14 апреля, среда
+                {CurrentDate}
               </Div>
         </Group>
       </Div>
@@ -60,15 +66,10 @@ const Schedule = (props) => {
                 rowGap: '10px'
               }}
             >
-              <div>pererivchik
-              na obed</div>
-              <div>pererivchik
-              na obed</div>
-              <div>pererivchik
-              na obed</div>
+              <div>{CurrentSchedule}</div>
             </Div>
             <Div>
-              <Button mode="outline" >Домашнее задание</Button>
+              <Button mode="outline">Домашнее задание</Button>
             </Div>
           </Div>
         </Group>
@@ -84,7 +85,7 @@ const Schedule = (props) => {
                 disabled
                 before="Avatar" // Аватарка пользователя через компонент <Avatar />
               >
-                Данил Даньшин
+                {CurrentTeacher}
               </SimpleCell>
             </Div>
         </Group>

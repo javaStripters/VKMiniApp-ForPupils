@@ -20,6 +20,7 @@ import React, {useState} from 'react'
 
 import Profile from './profileTab/Profile'
 import Schedule from './profileTab/Sсhedule'
+import Homework from './profileTab/Homework'
 
 const ProfileTab = (props) => {
   
@@ -29,6 +30,7 @@ const ProfileTab = (props) => {
     <View activePanel={activePanel}>
       <Profile id='profile' userInfoFromDB={props.userInfoFromDB}/>
       <Schedule id='shedule' />
+      <Homework id='homework' />
 
     </View>
   )
