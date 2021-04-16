@@ -16,7 +16,7 @@ import Schedule from './panels/profileTab/Sсhedule'
 const App = () => {
 	const [activePanel, setActivePanel] = useState('welcomePage');
 	const [fetchedUser, setUser] = useState(null);
-  const [isUserAuthorized, setIsUserAutorized] = useState(false)
+  const [userInfoFromDB, setUserInfoFromDB] = useState(false)
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
 	useEffect(() => {
@@ -44,7 +44,7 @@ const App = () => {
 			fetch ('http://localhost:8080/register/' + fetchedUser.id)
 				.then(( response ) => { return response.json() })
 				.then(( data ) => { console.log(data) })
-				.then(( data ) => setIsUserAutorized(data))
+				.then(( data ) => setUserInfoFromDB(data))
 		}
 	}, [fetchedUser])
 	
@@ -53,13 +53,13 @@ const App = () => {
 	//console.log(!data ? 'Loading...' : data)
 
 	useEffect(() =>{
-		console.log(isUserAuthorized)
-		if (isUserAuthorized !== false) {
-			console.log(isUserAuthorized)
+		console.log(userInfoFromDB)
+		if (userInfoFromDB !== false) {
+			console.log(userInfoFromDB)
 			console.log('heh')
 			setActivePanel('appbar')
 		}
-	}, [isUserAuthorized])
+	}, [userInfoFromDB])
 	
 
 	console.log(activePanel)
