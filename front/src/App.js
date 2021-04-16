@@ -10,6 +10,7 @@ import WelcomePage from './panels/WelcomePage'
 import RegChild from './panels/registrationForms/RegChild'
 import RegParent from './panels/registrationForms/RegParent'
 import RegTeacher from './panels/registrationForms/RegTeacher'
+import Appbar from './panels/Appbar';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('welcomePage');
@@ -32,7 +33,7 @@ const App = () => {
 		}
 		fetchVKData();
     
-    fetch ('https://localhost:8080/register/' + fetchedUser.id)
+    fetch ('https://localhost:8080/register/' + fetchedUser.id && fetchedUser)
       .then(( response ) => { return response.json() })
       .then(( data ) => { console.log(data) })
     
@@ -53,7 +54,8 @@ const App = () => {
           <RegChild id='regChild' go={go} fetchedUser={fetchedUser} />
           <RegParent id='regParent' go={go} fetchedUser={fetchedUser} />
           <RegTeacher id='regTeacher' go={go} fetchedUser={fetchedUser} />
-
+					{/* Основная часть приложения -- Appbar */}
+					<Appbar id='appbar' go={go}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
