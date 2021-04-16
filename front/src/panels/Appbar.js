@@ -21,18 +21,19 @@ import MainTab from './MainTab'
 import SectionsTab from './SectionsTab'
 import ProfileTab from './ProfileTab'
 
-const Appbar = () => {
+const Appbar = (props) => {
   const [activeTab, setActiveTab] = useState('mainTab');
 	const openNewTab = (event) => {
 		setActiveTab(event.currentTarget.dataset.to);
 	};
+
   return(
     <Panel>
       <View activePanel={activeTab}>
         <MainTab id="mainTab"/>
         
         <SectionsTab id="sectionsTab"/>
-        <ProfileTab id="profileTab"/>
+        <ProfileTab id="profileTab" userInfoFromDB={props.userInfoFromDB}/>
         
       </View>
 

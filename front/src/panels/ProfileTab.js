@@ -19,13 +19,16 @@ import {
 import React, {useState} from 'react'
 
 import Profile from './profileTab/Profile'
+import Schedule from './profileTab/Sсhedule'
 
 const ProfileTab = (props) => {
+  
   const [activePanel, setActivePanel] = useState('profile')
   
   return (
     <View activePanel={activePanel}>
-      <Profile id='profile' />
+      <Profile id='profile' userInfoFromDB={props.userInfoFromDB}/>
+      <Schedule id='shedule' />
 
     </View>
   )

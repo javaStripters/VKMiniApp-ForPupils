@@ -60,8 +60,19 @@
   justify-content: center;
   align-items: center;
 }
+
 .manage-card-item:hover {
   cursor: pointer;
+}
+.manage-card-item div {
+  display: flex;
+  flex-direction: row;
+}
+.manage-card-item div div {
+  margin-right: 5px;
+}
+.manage-card-item div span {
+  line-height: 28px;
 }
 
 .info-card-container {
