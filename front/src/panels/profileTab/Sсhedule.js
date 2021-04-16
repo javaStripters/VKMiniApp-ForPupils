@@ -52,12 +52,23 @@ const Schedule = (props) => {
             justifyContent: 'space-between'
           }}
           >
-            <Div>
-              pererivchik
-              na obed
+            <Div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr',
+                gridTemplateRows: 'auto',
+                rowGap: '10px'
+              }}
+            >
+              <div>pererivchik
+              na obed</div>
+              <div>pererivchik
+              na obed</div>
+              <div>pererivchik
+              na obed</div>
             </Div>
             <Div>
-              <Button mode="outline">Домашнее задание</Button>
+              <Button mode="outline" >Домашнее задание</Button>
             </Div>
           </Div>
         </Group>

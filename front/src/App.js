@@ -11,9 +11,10 @@ import RegChild from './panels/registrationForms/RegChild'
 import RegParent from './panels/registrationForms/RegParent'
 import RegTeacher from './panels/registrationForms/RegTeacher'
 import Appbar from './panels/Appbar';
+import Schedule from './panels/profileTab/Sсhedule'
 
 const App = () => {
-	const [activePanel, setActivePanel] = useState('welcomePage');
+	const [activePanel, setActivePanel] = useState('schedule');
 	const [fetchedUser, setUser] = useState(null);
   const [isUserAuthorized, setIsUserAutorized] = useState(false)
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
@@ -56,6 +57,8 @@ const App = () => {
           <RegTeacher id='regTeacher' go={go} fetchedUser={fetchedUser} />
 					{/* Основная часть приложения -- Appbar */}
 					<Appbar id='appbar' go={go}/>
+					{/* Профиль пользователя */}
+					<Schedule id='schedule' />
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
