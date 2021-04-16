@@ -5,14 +5,17 @@ import {
   Placeholder 
 } from '@vkontakte/vkui'
 import React from 'react'
+// import IntroductionImage from './Introduction-image.svg'
 
 const Introduction = (props) => {
 
   return (
-    <Panel>
-      <div> {/*Тут будет изогнутый блок с картинкой */}
+    <Panel> 
+      <div class="curved-block-before"></div>
+        {/* <img class="introduction-image" href={require('./Introduction-image.svg')} /> */}
+      <div class="curved-block"></div>
+      {/* <img class="introduction-image" src={IntroductionImage} width="400" height="400"/> */}
 
-      </div>
       <Placeholder
         header='Вступление'
         action={

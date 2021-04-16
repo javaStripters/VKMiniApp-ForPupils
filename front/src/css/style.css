@@ -1,0 +1,16 @@
+.curved-block {
+  background: #39CFE3;
+  width: 1000px;
+  height: 258px;
+  border-radius: 50%;
+  align-self: center;
+}
+.introduction-image {
+  position: absolute;
+}
+.curved-block-before {
+  background: #39CFE3;
+  width: 768px;
+  height: 188px;
+  position: absolute;
+}
