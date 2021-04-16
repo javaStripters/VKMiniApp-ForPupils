@@ -14,7 +14,7 @@ import Appbar from './panels/Appbar';
 import Schedule from './panels/profileTab/Sсhedule'
 
 const App = () => {
-	const [activePanel, setActivePanel] = useState('schedule');
+	const [activePanel, setActivePanel] = useState('welcomePage');
 	const [fetchedUser, setUser] = useState(null);
   const [isUserAuthorized, setIsUserAutorized] = useState(false)
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
@@ -29,17 +29,41 @@ const App = () => {
 		});
     async function fetchVKData() {
 			const user = await bridge.send('VKWebAppGetUserInfo');
-			setUser(user);
+			setUser(user); 
+			console.log(user.id)
 			setPopout(null);
 		}
 		fetchVKData();
-    
-    fetch ('https://localhost:8080/register/' + fetchedUser.id && fetchedUser)
-      .then(( response ) => { return response.json() })
-      .then(( data ) => { console.log(data) })
-    
-    
-	}, []);
+	}, [])
+  
+
+
+	
+	useEffect(() => {
+		if (fetchedUser) {
+			fetch ('http://localhost:8080/register/' + fetchedUser.id)
+				.then(( response ) => { return response.json() })
+				.then(( data ) => { console.log(data) })
+				.then(( data ) => setIsUserAutorized(data))
+		}
+	}, [fetchedUser])
+	
+
+	//const data = useFetch('https://localhost:8080/register/' + 201119641)
+	//console.log(!data ? 'Loading...' : data)
+
+	useEffect(() =>{
+		console.log(isUserAuthorized)
+		if (isUserAuthorized !== false) {
+			console.log(isUserAuthorized)
+			console.log('heh')
+			setActivePanel('appbar')
+		}
+	}, [isUserAuthorized])
+	
+
+	console.log(activePanel)
+
 
 	const go = e => {
 		setActivePanel(e.currentTarget.dataset.to);

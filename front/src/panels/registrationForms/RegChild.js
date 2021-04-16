@@ -142,7 +142,7 @@ class RegChild extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.state.isReadyToSend) {
       const data = {
-        id: Math.round(Math.random() * 1000), //skldjflkjsdl
+        id: this.state.userID, //Math.round(Math.random() * 1000), // this.state.userID
         firstName: this.state.formElements.firstName.content,
         lastName: this.state.formElements.lastName.content,
         city: this.state.formElements.city.content,

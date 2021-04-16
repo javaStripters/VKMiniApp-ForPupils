@@ -34,7 +34,7 @@ const ChooseRole = (props) => {
               stretched
               mode="secondary"
               size="m"
-              onClick={props.go} data-to="appbar"
+              onClick={props.go} data-to="regChild"
             >
               Ученик
             </Button>
