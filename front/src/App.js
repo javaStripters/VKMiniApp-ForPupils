@@ -30,7 +30,6 @@ const App = () => {
     async function fetchVKData() {
 			const user = await bridge.send('VKWebAppGetUserInfo');
 			setUser(user); 
-			console.log(user.id)
 			setPopout(null);
 		}
 		fetchVKData();
@@ -43,26 +42,17 @@ const App = () => {
 		if (fetchedUser) {
 			fetch ('http://localhost:8080/register/' + fetchedUser.id)
 				.then(( response ) => { return response.json() })
-				.then(( data ) => { console.log(data) })
 				.then(( data ) => setUserInfoFromDB(data))
 		}
 	}, [fetchedUser])
-	
-
-	//const data = useFetch('https://localhost:8080/register/' + 201119641)
-	//console.log(!data ? 'Loading...' : data)
 
 	useEffect(() =>{
-		console.log(userInfoFromDB)
 		if (userInfoFromDB !== false) {
-			console.log(userInfoFromDB)
-			console.log('heh')
 			setActivePanel('appbar')
 		}
 	}, [userInfoFromDB])
 	
 
-	console.log(activePanel)
 
 
 	const go = e => {
@@ -80,9 +70,8 @@ const App = () => {
           <RegParent id='regParent' go={go} fetchedUser={fetchedUser} />
           <RegTeacher id='regTeacher' go={go} fetchedUser={fetchedUser} />
 					{/* Основная часть приложения -- Appbar */}
-					<Appbar id='appbar' go={go}/>
+					<Appbar id='appbar' go={go} userInfoFromDB={userInfoFromDB} />
 					{/* Профиль пользователя */}
-					<Schedule id='schedule' />
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
