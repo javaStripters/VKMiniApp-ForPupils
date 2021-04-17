@@ -91,29 +91,35 @@ function Sections(props) {
           <Card 
             className="section-card-item"
             onClick={props.openNewTabPanel}
+
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>
           </Card>
           <Card 
             className="section-card-item"
+
             onClick={props.openNewTabPanel}
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>
           </Card>
           <Card 
             className="section-card-item"
+
             onClick={props.openNewTabPanel}
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>
           </Card>
           <Card 
             className="section-card-item"
+
             onClick={props.openNewTabPanel}
+
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>
           </Card>
           <Card 
             className="section-card-item"
+
             onClick={props.openNewTabPanel}
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>

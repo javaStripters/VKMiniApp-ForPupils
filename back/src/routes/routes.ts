@@ -1,7 +1,9 @@
 import {Express} from "express";
 import register from "./register";
 import parent from "./parent";
-import section from "./section";
+import section from "./sections";
+import children from "./children";
+import reviews from "./reviews";
 
 export default function (app: Express) {
   //TODO: Move to corresponding file?
@@ -13,6 +15,7 @@ export default function (app: Express) {
 
   register(app);
   parent(app);
-  // children(app);
-  section(app)
+  children(app);
+  section(app);
+  reviews(app);
 }
