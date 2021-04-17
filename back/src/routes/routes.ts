@@ -1,16 +1,18 @@
 import {Express} from "express";
 import register from "./register";
+import parent from "./parent";
+import section from "./section";
 
-// TODO: Move to corresponding file
 export default function (app: Express) {
-  //TODO: Pass filename as param
-  app.get("/upload/", async (req, res) => {
-    const {filename} = req.body;
+  //TODO: Move to corresponding file?
+  app.get("/upload/:filename", async (req, res) => {
+    const {filename} = req.params;
 
     res.sendFile(process.cwd() + "/uploads/" + filename);
   })
 
-
   register(app);
+  parent(app);
   // children(app);
+  section(app)
 }

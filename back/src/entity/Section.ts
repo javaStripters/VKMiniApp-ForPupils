@@ -6,14 +6,13 @@ import Review from "./Review";
 
 type WeekDay = "Понедельник" | "Вторник" | "Среда" | "Четверг" | "Пятница" | "Суббота" | "Воскресенье";
 
-type classTime = { weekday: WeekDay, from: number, to: number };
+type classTime = { weekday: WeekDay, from: [string, string], to: [string, string] };
 
 @Entity()
 export class Section extends AbstractEntity {
 
-  //TODO: rename to tutorName (maybe conflict with front)
   @Column()
-  fullName!: string;
+  tutorName!: string;
 
   @Column()
   organizationName!: string;
@@ -28,7 +27,7 @@ export class Section extends AbstractEntity {
   categories: string[];
 
   // TODO: Make not nullable after fix
-  @Column("simple-array", {nullable: true})
+  @Column("simple-json", {nullable: true})
   days!: classTime[];
 
   @Column("simple-array")
@@ -49,4 +48,14 @@ export class Section extends AbstractEntity {
 
   @OneToMany(() => Review, review => review.section)
   reviews: Review[];
+}
+
+export interface SectionInput {
+  tutorName: string;
+  organizationName: string;
+  description: string;
+  address: string;
+  daysRaw: string;
+  categoriesRaw: string;
+  linksRaw: string;
 }

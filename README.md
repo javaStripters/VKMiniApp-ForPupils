@@ -1,4 +1,4 @@
-# Крысиные делишки
+[comment]: <> (# Крысиные делишки)
 
 ## Дизайн
 
@@ -11,19 +11,38 @@
 ## Фронт
 [**Дизайн-макет**](https://www.figma.com/file/EOlHPaVTie9yeq5MQuS9s8/Шаблоны?node-id=0%3A1)
 
-[**Complete CSS Grid guide**](https://css-tricks.com/snippets/css/complete-guide-grid/)
+[comment]: <> ([**Complete CSS Grid guide**]&#40;https://css-tricks.com/snippets/css/complete-guide-grid/&#41;)
 
-[**Complete CSS Flexbox guide**](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+[comment]: <> ([**Complete CSS Flexbox guide**]&#40;https://css-tricks.com/snippets/css/a-guide-to-flexbox/&#41;)
 
-[**GraphQL Apollo**](https://studio.apollographql.com/org/javaScripters/graphs)
+[comment]: <> (## Бэк)
 
-[**Formik**](https://formik.org/)
+[comment]: <> ([**Insomnia**]&#40;https://insomnia.rest/download&#41; - REST-клиент для запросов.)
 
-## Бэк
+[comment]: <> (## Всякое)
 
-[**Insomnia**](https://insomnia.rest/download) - REST-клиент для запросов.
+[comment]: <> ([**lodash**]&#40;https://lodash.com/&#41; - *Дополнение* к стандартной библиотеке, чтобы не писать что-то вроде функции `capitalize`.)
 
-## Всякое
+## Зависимости:
 
-[**lodash**](https://lodash.com/) - *Дополнение* к стандартной библиотеке, чтобы не писать что-то вроде функции `capitalize`.
+node
 
+sqlite3
+
+## Запуск проекта
+
+1. Перейти в папку проекта
+2. Если у вас UNIX-система, выполнить `run.sh`
+3. В ином случае, перейти в папку `front`, выполнить
+
+```shell
+npm i
+npm run build
+```
+
+4. Перейти в папку уровнем выше `back` и выполнить
+
+```shell
+npm i
+npm start
+```
