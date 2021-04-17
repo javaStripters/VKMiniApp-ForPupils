@@ -26,9 +26,11 @@
 ## Зависимости:
 
 ###Node.js
+
 Необходимо скачать [LTS версию Node.js](https://nodejs.org/en/) с оф. сайта и установить ее. 
 
 ###SQLite3
+
 Удобнее всего устанавливать SQLite3 через пакетный мeнеджeр Chocolater -- для этого следует:
 1. Открыть PowerShell от имени администратора;
 2. Выполнить следующую команду: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`;
