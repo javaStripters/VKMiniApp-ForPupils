@@ -26,9 +26,7 @@ async function main() {
 
   routes(app);
 
-  if (config.PROD) {
-    https.createServer(sslOptions, app).listen(config.HTTPS_PORT);
-  }
+  https.createServer(sslOptions, app).listen(config.HTTPS_PORT);
   http.createServer(app).listen(config.PORT)
 
   console.log("Server up and running on https://localhost:" + config.HTTPS_PORT);
