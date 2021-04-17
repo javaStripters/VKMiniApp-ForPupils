@@ -5,7 +5,7 @@ import {processErr} from "./Tools";
 import {Parent} from "../entity/users/Parent";
 import Tutor from "../entity/users/Tutor";
 import multer from "multer";
-import {Section} from "../entity/Section";
+import {Section, SectionInput} from "../entity/Section";
 import AbstractEntity from "../entity/AbstractEntity";
 
 //TODO: Move to separate file
@@ -112,22 +112,29 @@ export default function (app: Express) {
 
 
   app.post("/register/section", upload.fields([{name: "payment", maxCount: 1}, {name: "cover", maxCount: 1}]),
-    async (req, res) => {
-      console.log(req.files);
-      const sectionInput = req.body;
+    async (req, res, next) => {
+      const sectionInput: SectionInput = req.body;
+      const section = Section.create(sectionInput);
+
       const {payment, cover} = req.files as { [p: string]: Express.Multer.File[] };
 
       if (payment)
-        sectionInput.paymentDetails = payment[0].filename;
+        section.paymentDetails = payment[0].filename;
       if (cover)
-        sectionInput.cover = cover[0].filename;
-      // Cтроки под этим комментарием надо убрать, если категории и время приходят правильно, как массив
-      sectionInput.categories = sectionInput.categories.split(',');
-      sectionInput.links = sectionInput.links.split(',');
+        section.cover = cover[0].filename;
+
+      try {
+        section.categories = JSON.parse(sectionInput.categoriesRaw);
+        section.links = JSON.parse(sectionInput.linksRaw);
+        section.days = JSON.parse(sectionInput.daysRaw);
+      } catch (err) {
+        next(err);
+        return;
+      }
 
 
       try {
-        const section = await Section.create(sectionInput as Section).save();
+        await section.save();
         res.status(201).send(section);
       } catch (err) {
         processErr(err, res);
