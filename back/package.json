@@ -7,7 +7,7 @@
     "watch": "tsc -w",
     "dev": "tsc -w & nodemon dist/index.js",
     "prestart": "tsc & (cd ../front && npm run build)",
-    "start": "node dist/index.js",
+    "start": "tsc && node dist/index.js",
     "gendoc": "typedoc --readme README.md --name typedin --out ./docs/ --tsconfig tsconfig.prod.json --excludePrivate --excludeNotExported --excludeExternals"
   },
   "dependencies": {
