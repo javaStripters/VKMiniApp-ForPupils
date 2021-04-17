@@ -1,4 +1,5 @@
 import {
+  Icon28AccessibilityOutline,
   Icon28AddCircleOutline,
   Icon28BillheadOutline,
   Icon28DiamondOutline,
@@ -36,51 +37,79 @@ const ProfileTab = (props) => {
   const childOptionsCards = [
     <Card className="manage-card-item">
       <div>
-        <div><Icon28BillheadOutline></Icon28BillheadOutline></div>
+        <div><Icon28BillheadOutline/></div>
         <span>Расписание</span>
       </div>
     </Card>,
     <Card className="manage-card-item">
-      <Icon28DiamondOutline></Icon28DiamondOutline>
-      Ачивки
+      <div>
+        <div><Icon28DiamondOutline/></div>
+        <span>Ачивки</span>
+      </div>
     </Card>,
     <Card className="manage-card-item">
-      <Icon28FavoriteOutline></Icon28FavoriteOutline>
-      Достижения
+      <div>
+        <div><Icon28FavoriteOutline/></div>
+        <span>Достижения</span>
+      </div>
     </Card>,
     <Card className="manage-card-item">
-      <Icon28SmileOutline></Icon28SmileOutline>
-      Преподаватели
+      <div>
+        <div><Icon28SmileOutline/></div>
+        <span>Преподаватели</span>
+      </div>
     </Card>,
   ];
   const parentOptionsCards = [
     <Card className="manage-card-item">
-      <Icon28BillheadOutline></Icon28BillheadOutline>
-      Расписание
+      <div>
+        <div><Icon28BillheadOutline/></div>
+        <span>Расписание</span>
+      </div>
     </Card>,
-    <Card className="manage-card-item">Выбор секции</Card>,
-    <Card className="manage-card-item">Дети</Card>,
     <Card className="manage-card-item">
-      <Icon28SmileOutline></Icon28SmileOutline>
-      Преподаватели
+      <div>
+        <div><Icon28SettingsOutline/></div>
+        <span>Выбор секции</span>
+      </div>
+    </Card>,
+    <Card className="manage-card-item">
+      <div>
+        <div><Icon28AccessibilityOutline/></div>
+        <span>Дети</span>
+      </div>
+    </Card>,
+    <Card className="manage-card-item">
+      <div>
+        <div><Icon28SmileOutline/></div>
+        <span>Преподаватели</span>
+      </div>
     </Card>,
   ];
   const tutorOptionsCards = [
     <Card className="manage-card-item">
-      <Icon28BillheadOutline></Icon28BillheadOutline>
-      Расписание
+      <div>
+        <div><Icon28BillheadOutline/></div>
+        <span>Расписание</span>
+      </div>
     </Card>,
     <Card className="manage-card-item">
-      <Icon28SettingsOutline></Icon28SettingsOutline>
-      Отзывы
+      <div>
+        <div><Icon28SettingsOutline/></div>
+        <span>Отзывы</span>
+      </div>
     </Card>,
     <Card className="manage-card-item">
-      <Icon28FavoriteOutline></Icon28FavoriteOutline>
-      Регалии
+      <div>
+        <div><Icon28FavoriteOutline/></div>
+        <span>Регалии</span>
+      </div>
     </Card>,
     <Card className="manage-card-item">
-      <Icon28AddCircleOutline></Icon28AddCircleOutline>
-      Добавить секцию
+      <div>
+        <div><Icon28AddCircleOutline/></div>
+        <span>Добавить секцию</span>
+      </div>
     </Card>,
   ];
 

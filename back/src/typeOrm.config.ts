@@ -14,3 +14,11 @@ export default {
   synchronize: !config.PROD,
   entities: [Child, Parent, Tutor, User, Review, Section],
 } as Parameters<typeof createConnection>[0]
+
+// export default {
+//   type: "postgres",
+//   database: "stud_app",
+//   logging: !config.PROD,
+//   synchronize: !config.PROD,
+//   entities: [Child, Parent, Tutor, User, Review, Section],
+// } as Parameters<typeof createConnection>[0]
