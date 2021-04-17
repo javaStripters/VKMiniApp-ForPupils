@@ -8,7 +8,7 @@ export default class Tutor extends User {
   @Column()
   organizationName!: string;
 
-  @Column("simple-array")
+  @Column("simple-array", {nullable: true})
   sectionsTypes: string[];
 
   @ManyToMany(() => Section, section => section.tutors)
