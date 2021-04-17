@@ -25,15 +25,20 @@
 
 ## Зависимости:
 
-node
+###Node.js
+Необходимо скачать [LTS версию Node.js](https://nodejs.org/en/) с оф. сайта и установить ее. 
 
-sqlite3
+###SQLite3
+Удобнее всего устанавливать SQLite3 через пакетный мeнеджeр Chocolater -- для этого следует:
+1. Открыть PowerShell от имени администратора;
+2. Выполнить следующую команду: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`;
+3. Посредством Chocolatey установить SQLite3, используя команду `choco install sqlite`.
 
 ## Запуск проекта
 
 1. Перейти в папку проекта
 2. Если у вас UNIX-система, выполнить `run.sh`
-3. В ином случае, перейти в папку `front`, выполнить
+4. В ином случае, перейти в папку `front`, выполнить
 
 ```shell
 npm i
