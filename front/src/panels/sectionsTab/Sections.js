@@ -10,11 +10,35 @@ import {
   PanelHeaderButton,
   Button,
   CellButton,
+  Group,
 } from "@vkontakte/vkui";
-import { Icon28Menu } from "@vkontakte/icons";
+import { Icon28AddOutline, Icon28Menu } from "@vkontakte/icons";
 
 function Sections(props) {
   const [sectionData, setSectionData] = useState(null)
+  const [addSectionButton, setAddSectionButton] = useState(null)
+
+  console.log(props)
+
+  
+  useEffect(() => {
+    if (props.userInfoFromDB) {
+      if (props.userInfoFromDB.type === 'Tutor') {
+        setAddSectionButton(
+          <CellButton
+            centered 
+            before={<Icon28AddOutline />}
+            /*onClick={props.openNewTabModal}*/
+            onClick={props.openNewTabPanel}
+            data-to='addSection'
+          >Добавить секцию</CellButton>
+        )
+      }
+    }
+  }, [])
+  
+  
+
   useEffect(() => {
     fetch("https://localhost:10888/somethings")
     //fetch('https://swapi.dev/api/people/')
@@ -45,7 +69,7 @@ function Sections(props) {
       <PanelHeader
         left={
           <PanelHeaderButton
-            onClick={props.go}
+            onClick={props.openNewTabPanel}
             data-to="categories"
           >
             <Icon28Menu />
@@ -55,9 +79,12 @@ function Sections(props) {
         Секции
       </PanelHeader>
       <Div>
-        {/**/}
+        
 
         <Search />
+        
+        {addSectionButton}
+          
         <Div className="section-card-container">
           {ContentCards}
 

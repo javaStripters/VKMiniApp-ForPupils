@@ -30,14 +30,13 @@ const Appbar = (props) => {
   return(
     <Panel>
       <View activePanel={activeTab}>
-        <MainTab id="mainTab"/>
-        
-        <SectionsTab id="sectionsTab"/>
-        <ProfileTab id="profileTab" userInfoFromDB={props.userInfoFromDB}/>
+        <MainTab id="mainTab" userInfoFromDB={props.userInfoFromDB} />
+        <SectionsTab id="sectionsTab" go={props.go} userInfoFromDB={props.userInfoFromDB} />
+        <ProfileTab id="profileTab" userInfoFromDB={props.userInfoFromDB} />
         
       </View>
 
-      <Tabbar>
+      <Tabbar style={{zIndex: '50'}}>
         <TabbarItem
           text='Главная'
           onClick={openNewTab}

@@ -11,7 +11,6 @@ import RegChild from './panels/registrationForms/RegChild'
 import RegParent from './panels/registrationForms/RegParent'
 import RegTeacher from './panels/registrationForms/RegTeacher'
 import Appbar from './panels/Appbar';
-import Schedule from './panels/profileTab/Sсhedule'
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('welcomePage');
@@ -71,7 +70,6 @@ const App = () => {
           <RegTeacher id='regTeacher' go={go} fetchedUser={fetchedUser} />
 					{/* Основная часть приложения -- Appbar */}
 					<Appbar id='appbar' go={go} userInfoFromDB={userInfoFromDB} />
-					{/* Профиль пользователя */}
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>

@@ -158,7 +158,7 @@ class RegTeacher extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.state.isReadyToSend) {
       const data = {
-        id: Math.round(Math.random() * 1000), //this.state.userID
+        id: this.state.userID, //Math.round(Math.random() * 1000), //this.state.userID
         firstName: this.state.formElements.firstName.content,
         lastName: this.state.formElements.lastName.content,
         patronymic: this.state.formElements.patronym.content !== '' ? this.state.formElements.patronym.content : null,
