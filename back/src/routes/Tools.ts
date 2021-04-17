@@ -33,6 +33,14 @@ export function generateGetAll(entity: any, app: Express) {
   })
 }
 
+export function generateDeleteOne(entity: any, app: Express) {
+  app.delete(`/${entity.name.toLowerCase()}/:id`, async (req, res) => {
+    const record = entity.delete(+req.params.id);
+
+
+  })
+}
+
 export async function entityNotExist(repo: Repository<any>, id: number, res: Response) {
   const entity = await repo.findOne(id);
 

@@ -27,11 +27,9 @@ export default function (app: Express) {
 
   app.get("/review/section/:id/:from/:to", async (req, res, next) => {
     const {id, from, to} = req.params;
-    const section = await entityExist(getRepository(Section), +req.params.id, res);
-    if (!section) return;
 
     const reviews = await Review.createQueryBuilder("review")
-      .where("review.section = :section", {section: section.id})
+      .where("review.section = :section", {section: id})
       .skip(+from)
       .take((+to) - (+from))
       .getMany()

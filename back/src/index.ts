@@ -23,7 +23,6 @@ async function main() {
   app.use(express.static("../front/build"));
   app.use(express.json());
 
-
   routes(app);
 
   https.createServer(sslOptions, app).listen(config.HTTPS_PORT);
