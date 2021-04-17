@@ -38,13 +38,13 @@
 
 ## Запуск проекта
 
+1. Клонировать репозиторий `git clone https://github.com/javaStripters/VKMiniApp-ForPupils`
 1. Перейти в папку проекта
 2. Если у вас UNIX-система, выполнить `run.sh`
 4. В ином случае, перейти в папку `front`, выполнить
 
 ```shell
-npm i
-npm run build
+npm i --force
 ```
 
 4. Перейти в папку уровнем выше `back` и выполнить
