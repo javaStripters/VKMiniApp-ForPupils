@@ -40,7 +40,14 @@ const Productivity = (props) => {
         <Group>
           <FormItem top="Статистика">
             <Select
-              placeholder="Общее"
+              placeholder="Выберите секцию"
+              options={[{
+                value: '0', label: 'Общее' }, {
+                value: '1', label: 'Программирование на Python' }, {
+                value: '2', label: 'Кружок рисования "Чистые ручки"' }, {
+                value: '3', label: 'Бисероплетение' }, {
+                value: '4', label: 'Гейм-дизайн с Крутым Челом' }]
+                }
             />
           </FormItem>
 
