@@ -25,7 +25,6 @@
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   column-gap: 20px;
   justify-items: center;
-  text-align: center;
   grid-auto-rows: auto;
   row-gap: 20px;
 }
@@ -88,7 +87,4 @@
   grid-auto-rows: auto;
   justify-content: center;
   /*margin-bottom: 100px;*/
-}
-.info-cards {
-  height: 100px;
 }

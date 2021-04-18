@@ -315,10 +315,21 @@ class RegChild extends React.Component {
                 </FormItem>
               
                 <Div align="center">
+                  {/*
                   <Button 
                     mode='primary'
                     size="l"
                     onClick={this.formChecking}
+                  >
+                    Зарегистрироваться
+                  </Button>
+                  */}
+
+                  <Button 
+                    mode='primary'
+                    size="l"
+                    onClick={this.props.go}
+                    data-to='appbar'
                   >
                     Зарегистрироваться
                   </Button>

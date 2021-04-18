@@ -5,7 +5,8 @@ import {
   Header, 
   HorizontalScroll,
   Link,
-  ContentCard
+  ContentCard,
+  PanelHeaderButton
 } from '@vkontakte/vkui'
 import React,  {useState, useEffect} from 'react'
 
@@ -13,6 +14,7 @@ import star from '../../img/star.svg'
 import basketball from '../../img/basketball.jpg'
 import chess from '../../img/chess.jpg'
 import reloadIcon from '../../img/reload-icon.svg'
+import { Icon24Place } from '@vkontakte/icons'
 
 
 const HomePage = (props) => {
@@ -60,7 +62,7 @@ const HomePage = (props) => {
       }
     >
     </ContentCard>,
-      <ContentCard 
+    <ContentCard 
       style={sectionsCardStyles}
       className="section-card-item"
       image={chess}
@@ -216,7 +218,7 @@ const HomePage = (props) => {
 
   return(
     <Panel>
-      <PanelHeader>Главная</PanelHeader>
+      <PanelHeader left={<PanelHeaderButton> <Icon24Place /> </PanelHeaderButton>}>Главная</PanelHeader>
       {/* Рекомендуемые кружки */}
       <Group
         header={

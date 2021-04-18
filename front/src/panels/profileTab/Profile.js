@@ -4,6 +4,7 @@ import {
   Icon28BillheadOutline,
   Icon28DiamondOutline,
   Icon28FavoriteOutline,
+  Icon28GraphOutline,
   Icon28SettingsOutline,
   Icon28SmileOutline,
 } from "@vkontakte/icons";
@@ -19,20 +20,13 @@ import {
   SimpleCell,
   Group,
   Header,
+  Avatar,
 } from "@vkontakte/vkui";
 import React, { useEffect, useState } from "react";
 
+import profileImg from '../../img/Kuzmichev_P.jpg'
+
 const ProfileTab = (props) => {
-  const [userFullName, setUserFullName] = useState("Иван Иванов");
-  const [actualManageCards, setActualManageCards] = useState([]);
-
-  const [infoCard1, setInfoCards] = useState([
-    <Card className="info-cards"></Card>,
-  ]);
-
-  const [infoCard2, setInfoCard2] = useState([
-    <Card className="info-cards"></Card>,
-  ]);
 
   const childOptionsCards = [
     <Card className="manage-card-item">
@@ -43,8 +37,8 @@ const ProfileTab = (props) => {
     </Card>,
     <Card className="manage-card-item">
       <div>
-        <div><Icon28DiamondOutline/></div>
-        <span>Ачивки</span>
+        <div><Icon28GraphOutline/> </div>
+        <span>Успеваемость</span>
       </div>
     </Card>,
     <Card className="manage-card-item">
@@ -60,6 +54,26 @@ const ProfileTab = (props) => {
       </div>
     </Card>,
   ];
+
+
+  const [userFullName, setUserFullName] = useState("Иван Иванов");
+  const [actualManageCards, setActualManageCards] = useState(childOptionsCards);
+
+  const [infoCard1, setInfoCards] = useState([
+    <Card 
+      className="info-cards"
+      style={{padding: '10px'}}  
+    >
+      Родители: <br />
+      Мама - Приходько Анастасия Дмитриевна <br />
+      Отчим - Антонов Дмитрий Сергеевич <br />
+      <br />
+      <br />
+      E-mail: someEmail@mail.ru <br />
+      Номер телефона: 8(123)456-78-90
+    </Card>,
+  ]);
+  
   const parentOptionsCards = [
     <Card className="manage-card-item">
       <div>
@@ -129,6 +143,9 @@ const ProfileTab = (props) => {
       } else if (props.userInfoFromDB.type === "Tutor") {
         setActualManageCards(tutorOptionsCards);
       }
+      else {
+        setActualManageCards(childOptionsCards);
+      }
     }
   }, []);
 
@@ -160,10 +177,10 @@ const ProfileTab = (props) => {
                 Редактировать профиль
               </Button>
             }
-            before="Avatar" // Аватарка пользователя через компонент <Avatar />
+            before={<Avatar src={profileImg}/>} // Аватарка пользователя через компонент <Avatar />
             description="Поделиться своим профилем" // Эта строка - ссылка
           >
-            {userFullName}
+            Кузьмичев Павел Анатольевич
           </SimpleCell>
         </Div>
 
@@ -175,11 +192,6 @@ const ProfileTab = (props) => {
             <div>
               <Header mode="secondary">Контактная информация</Header>
               <div>{infoCard1}</div>
-            </div>
-
-            <div>
-              <Header mode="secondary">О себе</Header>
-              <div>{infoCard2}</div>
             </div>
           </Div>
 
