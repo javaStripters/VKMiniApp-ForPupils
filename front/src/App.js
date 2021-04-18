@@ -70,6 +70,7 @@ const App = () => {
           <RegTeacher id='regTeacher' go={go} fetchedUser={fetchedUser} />
 					{/* Основная часть приложения -- Appbar */}
 					<Appbar id='appbar' go={go} userInfoFromDB={userInfoFromDB} />
+
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>

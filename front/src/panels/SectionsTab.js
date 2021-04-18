@@ -10,6 +10,7 @@ import React, {useState} from 'react'
 import Sections from './sectionsTab/Sections'
 import Categories from './sectionsTab/Categories'
 import Section from './sectionsTab/Section'
+import Section1 from './sectionsTab/Section1'
 import AddSection from './sectionsTab/AddSection'
 
 const SectionsTab = (props) => { 
@@ -31,6 +32,7 @@ const SectionsTab = (props) => {
       <View activePanel={activeTabPanel} >
         <Sections id='sections' openNewTabPanel={openNewTabPanel} openNewTabModal={openNewTabModal} userInfoFromDB={props.userInfoFromDB} />
         <Categories id='categories' go={openNewTabPanel} />
+        <Section1 id='section1' openNewTabPanel={openNewTabPanel} go={props.go}/>
         <Section id='section' go={openNewTabPanel}/>
         <AddSection id='addSection' openNewTabPanel={openNewTabPanel} userInfoFromDB={props.userInfoFromDB}/>
       </View>
