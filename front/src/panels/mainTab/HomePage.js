@@ -12,6 +12,8 @@ import React,  {useState, useEffect} from 'react'
 import star from '../../img/star.svg'
 import basketball from '../../img/basketball.jpg'
 import chess from '../../img/chess.jpg'
+import reloadIcon from '../../img/reload-icon.svg'
+
 
 const HomePage = (props) => {
   const sectionsCardStyles = {
@@ -24,7 +26,6 @@ const HomePage = (props) => {
   }
   const updatesCardStyles = {
     minWidth: '150px',
-    height: '150px',
     margin: '10px'
   }
   
@@ -143,14 +144,14 @@ const HomePage = (props) => {
     >
     </ContentCard>,
     <ContentCard 
-    style={newsCardStyles}
-    className="section-card-item"
-    image={'https://s3-alpha-sig.figma.com/img/c27a/775a/39941ad60e5adb4fe43ac54db9d369f7?Expires=1619395200&Signature=bNWKDRbHop53JOxBoiWRcfpLsA-Sf2jhqdSCZy9CBeaz3hYonBDSxNXWv6RNOQXBqMR1yrGvDTLhIiBlxDCQqhF6rwzkRoHvgBX3yfrXZ4mRTEzYz8bmJQnhQ8hKZOg6M4XDOnzZ6g4fc9oJtBpKpbFrfWmNcY6e65fdkrdasvz8h3Qois8uTEPFDbMmIyZg~0Jptt53ZKwUNEVLpgkSn~3PI6w~ndZ1Ey96geOjbCbfBjam~D7TZcgVFSNavJoWpfUXRFS4njVXEyF9CYTNEZGZYP8jkvTn3Zx3t72B9JL3zh3gu-VjEzcae1NQKyqVKQrGz1wTcMzxpGRWuZ19uA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'}
-    header={'«Детская неожиданность» в театре «А–Я»'}
-    maxHeight='200px'
-    caption={<p>В ближайшие две недели будут проводится незабываемые мастер классы для детей и их родителей.</p>}
-  >
-  </ContentCard>,
+      style={newsCardStyles}
+      className="section-card-item"
+      image={'https://s3-alpha-sig.figma.com/img/c27a/775a/39941ad60e5adb4fe43ac54db9d369f7?Expires=1619395200&Signature=bNWKDRbHop53JOxBoiWRcfpLsA-Sf2jhqdSCZy9CBeaz3hYonBDSxNXWv6RNOQXBqMR1yrGvDTLhIiBlxDCQqhF6rwzkRoHvgBX3yfrXZ4mRTEzYz8bmJQnhQ8hKZOg6M4XDOnzZ6g4fc9oJtBpKpbFrfWmNcY6e65fdkrdasvz8h3Qois8uTEPFDbMmIyZg~0Jptt53ZKwUNEVLpgkSn~3PI6w~ndZ1Ey96geOjbCbfBjam~D7TZcgVFSNavJoWpfUXRFS4njVXEyF9CYTNEZGZYP8jkvTn3Zx3t72B9JL3zh3gu-VjEzcae1NQKyqVKQrGz1wTcMzxpGRWuZ19uA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'}
+      header={'«Детская неожиданность» в театре «А–Я»'}
+      maxHeight='200px'
+      caption={<p>В ближайшие две недели будут проводится незабываемые мастер классы для детей и их родителей.</p>}
+    >
+    </ContentCard>,
     <ContentCard style={newsCardStyles}></ContentCard>,
     <ContentCard style={newsCardStyles}></ContentCard>,
     <ContentCard style={newsCardStyles}></ContentCard>,
@@ -163,6 +164,34 @@ const HomePage = (props) => {
   ])
 
   const [updatesItems, setUpdatesItems] = useState([
+    <ContentCard 
+      style={updatesCardStyles}
+      className="section-card-item"
+      //image={reloadIcon}
+      header={'Вышла новая версия 1.2.7'}
+      maxHeight='200px'
+      caption={
+        <div>
+          <p>Оцените нововведения! <br />Нам важно Ваше мнение.</p>
+          <Link>Подробнее</Link>
+        </div>
+      }
+    >
+    </ContentCard>,
+    <ContentCard 
+      style={updatesCardStyles}
+      className="section-card-item"
+      //image={reloadIcon}
+      header={<p>Hot fix 1.2.6e</p>}
+      maxHeight='200px'
+      caption={
+        <div>
+          <p>Исправили отображение списка преподавателей</p>
+          <Link>Подробнее</Link>
+        </div>
+      }
+    >
+    </ContentCard>,
     <ContentCard style={updatesCardStyles}></ContentCard>,
     <ContentCard style={updatesCardStyles}></ContentCard>,
     <ContentCard style={updatesCardStyles}></ContentCard>,
@@ -222,7 +251,7 @@ const HomePage = (props) => {
         header={<Header>Обновления</Header>}
       >
         <HorizontalScroll>
-          <div style={{display: 'flex'}}>
+          <div style={{display: 'flex', marginBottom: '40px'}}>
             {updatesItems}
           </div>
         </HorizontalScroll>
