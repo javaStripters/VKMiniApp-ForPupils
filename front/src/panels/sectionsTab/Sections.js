@@ -17,8 +17,8 @@ import { Icon28AddOutline, Icon28Menu } from "@vkontakte/icons";
 function Sections(props) {
   const [sectionData, setSectionData] = useState(null)
   const [addSectionButton, setAddSectionButton] = useState(null)
+  const [server, setServer] = useState('http://localhost:8080/')
 
-  console.log(props)
 
   
   useEffect(() => {
@@ -40,8 +40,7 @@ function Sections(props) {
   
 
   useEffect(() => {
-    fetch("https://localhost:10888/somethings")
-    //fetch('https://swapi.dev/api/people/')
+    fetch(server + 'sections')
       .then((response) => response.json())
       .then(response => {
         setSectionData(response)
@@ -51,15 +50,22 @@ function Sections(props) {
   const ContentCards = (
     sectionData !== null &&
     sectionData.map((element, index) => {
+      console.log(imagePath + element.cover)
       return (
-        <ContentCard 
-          className="section-card-item"
-          image={element.url}
-          header={element.description.substr(0, 25)}
-          maxHeight='120px'
-          caption={element.description.substr(0, 50)}
+        <Card
+          onClick={props.openNewTabPanel}
+          data-to="section"
         >
-        </ContentCard>
+          <ContentCard 
+            className="section-card-item"
+            image={server + 'upload/' + element.cover}
+            header={element.organizationName}
+            maxHeight='120px'
+            caption={element.description.substr(0, 60) + '...'}
+          >
+          </ContentCard>
+        </Card>
+          
       )
     })
   )
@@ -91,35 +97,29 @@ function Sections(props) {
           <Card 
             className="section-card-item"
             onClick={props.openNewTabPanel}
-
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>
           </Card>
           <Card 
             className="section-card-item"
-
             onClick={props.openNewTabPanel}
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>
           </Card>
           <Card 
             className="section-card-item"
-
             onClick={props.openNewTabPanel}
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>
           </Card>
           <Card 
             className="section-card-item"
-
             onClick={props.openNewTabPanel}
-
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>
           </Card>
           <Card 
             className="section-card-item"
-
             onClick={props.openNewTabPanel}
             data-to="section">
             <ContentCard className="section-card-item"></ContentCard>

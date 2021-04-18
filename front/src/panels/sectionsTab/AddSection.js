@@ -16,8 +16,9 @@ import {
   NativeSelect,
   Avatar,
   Textarea,
+  File
 } from "@vkontakte/vkui";
-import { Icon24Add, Icon28AddOutline } from "@vkontakte/icons";
+import { Icon24Add, Icon24CameraOutline, Icon28AddOutline, Icon28CameraOutline } from "@vkontakte/icons";
 import { checkPropTypes } from "prop-types";
 import _ from "lodash";
 
@@ -52,6 +53,8 @@ class AddSection extends React.Component {
           isCorrect: true,
         },
       },
+      application: null,
+      image: null,
       server: "http://localhost:8080/",
       isFormCorrect: true,
       showingPatronym: true,
@@ -60,6 +63,7 @@ class AddSection extends React.Component {
     this.changeHandler = this.changeHandler.bind(this);
     this.blurHandler = this.blurHandler.bind(this);
     this.formChecking = this.formChecking.bind(this);
+    this.fileInput = React.createRef();
   }
   changeHandler(name, value) {
     this.setState((prevState) => {
@@ -81,12 +85,18 @@ class AddSection extends React.Component {
       return state;
     });
   }
+  setImage(file) {
+    this.setState({
+      image: file
+    })
+    console.log(this.state)
+  }
   formChecking() {
     this.setState((prevState) => {
       const state = _.cloneDeep(prevState);
       state.isFormCorrect = true;
       for (let formElement in this.state.formElements) {
-        if (state.formElements[formElement] === "sectionLinks") {
+        if (formElement === "sectionLinks") {
           state.formElements[formElement] = {
             ...state.formElements[formElement],
             isCorrect: true,
@@ -124,17 +134,19 @@ class AddSection extends React.Component {
   
   componentDidUpdate(prevProps, prevState) {
     if (this.state.isReadyToSend) {
+      console.log(this.fileInput)
       const form = new FormData();
-      form.append("organizationName", "Чистые ручки");
-      form.append("fullName", "Чистые ручки");
-      form.append("description", "Самые чистые ручки на Диком Западе");
-      form.append("address", "ул. Кукушкина д. Пушкина");
-      form.append("categories", "Бокс, ручки, чистота");
-      form.append("links", "google.com, ya.ru");
-      form.append("cover", "");
-      form.append("payment", '');
+      form.append("organizationName", this.state.formElements.sectionName.content);
+      form.append("tutorName", this.state.formElements.fullName.content);
+      form.append("description", this.state.formElements.sectionDescription.content);
+      form.append("address", this.state.formElements.sectionLocation.content);
+      form.append("categoriesRaw", JSON.stringify(["Бокс", "ручки", "чистота"]));
+      form.append("linksRaw", JSON.stringify(["google.com", "ya.ru"]));
+      form.append("cover", this.fileInput.current.files[0]);
+      form.append("payment", null);
+      form.append("daysRaw",  JSON.stringify([{"weekday":"Понедельник","from":["13", "45"],"to":["15", "00"]},{"weekday":"Пятница","from":["16", "15"],"to":["20", "15"]}]))
 
-      fetch("http://localhost:8080/register/section", {
+      fetch(this.state.server + "register/section", {
         method: "POST",
         body: form,
       })
@@ -366,27 +378,38 @@ class AddSection extends React.Component {
                   <CellButton before={<Icon28AddOutline />}>
                     Добавить ссылку
                   </CellButton>
+                    <CellButton
+                      before={
+                        <Avatar shadow={false} size={48}>
+                          <Icon24Add />
+                        </Avatar>
+                      }
+                    >
+                      {" "}
+                      Прикрепите фотографию для обложки Вашей секции{" "}
+                    </CellButton>
+
                   <CellButton
-                    before={
-                      <Avatar shadow={false} size={48}>
-                        <Icon24Add />
-                      </Avatar>
-                    }
+                      getRef={this.fileInput}
+                      before={
+                        <Avatar shadow={false} size={48}>
+                          <Icon24Add />
+                        </Avatar>
+                      }
+                    >
+                      {" "}
+                      Прикрепите заявление для вступления в Вашу секцию{" "}
+                    </CellButton>
+                  
+                  <File
+                    before={<Icon24CameraOutline />}
+                    mode='primary'
+                    getRef={this.fileInput}
                   >
-                    {" "}
-                    Прикрепите фотографию для обложки Вашей секции{" "}
-                  </CellButton>
-                  <CellButton
-                    before={
-                      <Avatar shadow={false} size={48}>
-                        <Icon24Add />
-                      </Avatar>
-                    }
-                  >
-                    {" "}
-                    Прикрепите заявление для вступления в Вашу секцию{" "}
-                  </CellButton>
+                  </File>
                 </FormItem>
+
+                {/*<input type='file' ref={this.fileInput} />*/}
 
                 <Div align="center" style={{marginBottom: '40px'}}>
                   <Button mode="primary" size="l" onClick={this.formChecking}>
