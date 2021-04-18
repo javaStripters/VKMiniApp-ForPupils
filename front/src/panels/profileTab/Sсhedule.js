@@ -66,7 +66,8 @@ const Schedule = (props) => {
                 rowGap: '10px'
               }}
             >
-              <div>{CurrentSchedule}</div>
+              <div>Проверка домашнего задания - 16:45 - 17:30<br/>Перерыв - 17:30 - 17:45
+<br/>Изучение нового материала - 17:45 - 19:00</div>
             </Div>
             <Div>
               <Button mode="outline">Домашнее задание</Button>
