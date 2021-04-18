@@ -7,8 +7,18 @@ import {Card,
         FormItem, 
         Select, 
         Title, 
-        Div} from '@vkontakte/vkui'
+        Div,
+        Placeholder,
+        Button,
+        Avatar} from '@vkontakte/vkui'
 import React from 'react'
+
+import IconGraduated from '../../img/graduated.svg'
+import IconSuccess from '../../img/success.svg'
+import IconGoal from '../../img/goal.svg'
+import IconCalendar from '../../img/calendar.svg'
+import IconNegativeReview from '../../img/negative-review.svg'
+import IconLoupe from '../../img/loupe.svg'
 
 const Productivity = (props) => {
 
@@ -63,6 +73,42 @@ const Productivity = (props) => {
           </Div>
           </Card>
           </Div>
+
+          <Placeholder>Тут будет график</Placeholder>
+
+          <Separator />
+
+          <Div>
+            <Title level='1' weight='semibold'>Ачивки</Title>
+          </Div>
+
+          <Div style={{
+            display: 'grid',
+            gridTemplateColumns:'auto auto auto auto',
+            gridTemplateRows:'auto auto',
+            rowGap:'15px',
+            columnGap: '32px',
+          }}>
+            <div style={{ display:'flex', justifyContent:'center' }}>
+            <Avatar size={150} src={IconGraduated}></Avatar>
+            </div>
+            <div style={{ display:'flex', justifyContent:'center' }}>
+            <Avatar size={150} src={IconSuccess}></Avatar>
+            </div>
+            <div style={{ display:'flex', justifyContent:'center' }}>
+            <Avatar size={150} src={IconGoal}></Avatar>
+            </div>
+            <div style={{ display:'flex', justifyContent:'center' }}>
+            <Avatar size={150} src={IconCalendar}></Avatar>
+            </div>
+            <div style={{ display:'flex', justifyContent:'center' }}>
+            <Avatar size={150} src={IconNegativeReview}></Avatar>
+            </div>
+            <div style={{ display:'flex', justifyContent:'center' }}>
+            <Avatar size={150} src={IconLoupe}></Avatar>
+            </div>
+          </Div>
+
         </Group>
     </Panel>
   )
