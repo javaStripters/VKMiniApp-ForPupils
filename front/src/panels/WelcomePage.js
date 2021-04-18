@@ -28,7 +28,9 @@ const WelcomePage = props => {
 	};
   
   return (
+    
     <Panel id={props.id}>
+      {/*
       <PanelHeader
         left={
           activeTab === 'chooseRole' ? 
@@ -39,6 +41,7 @@ const WelcomePage = props => {
       >
         {'{Название приложения}'}
       </PanelHeader>
+      */}
       <View activePanel={activeTab}>
         <Introduction id='introduction' openNewTab={openNewTab}/>
         <ChooseRole id='chooseRole' firstName={firstName} go={props.go}/>
