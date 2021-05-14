@@ -34,7 +34,7 @@ const Section1 = (props) => {
       <PanelHeader
         left={
           <PanelHeaderBack
-            onClick={props.go}
+            onClick={props.openNewTabPanel}
             data-to="sections"
           >
 
@@ -59,9 +59,8 @@ const Section1 = (props) => {
         }}>
           <div
             style={{
-              minHeight: '100px',
-              maxHeight: '200px',
-              maxWidth: '300px',
+              minHeight: '200px',
+              maxHeight: '250px',
               overflow: 'hidden',
               borderRadius: '10px',
               background: 'no-repeat center/cover url(https://s3-alpha-sig.figma.com/img/8911/30a6/7dd9917d3d63ff2b5a7e04d330333b9d?Expires=1619395200&Signature=dG2FBJA8ZfmYshzZZLMpGaBHB3psi~LXhtlJnNgngG5DPybpZVrBVNFROak8G3-aVuQ0ViD4QtyfApndLyTZ74-1ZbqbaUs0PXJAkhEdKGOQJfN~VN5Pn5l4bRWsHQpYDeIRUcJeC0I~ZcZ~0eOOptUTfJzPZuOXyXAnqijtyRqUmkABRfBb06-85uCJ5v16fUoRco5yuh~o0MN55i4mqSUXdnjAFXuF3Spu7mnFRSWY3MGgfLH7R2C8iLhv3dxk23cfLkFMXT3~1lnan1N60jkrt2ImQJ9mQ2rwDq65L6LmcILE1RFRBXzVfCd0uERif3Hxj4eeqItfeg1CEUgJig__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA)'

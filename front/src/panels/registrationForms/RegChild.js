@@ -307,13 +307,31 @@ class RegChild extends React.Component {
                   />
 
                 </FormItem>
+
+                <FormItem top='Мама'> 
+                  <Input placeholder='Укажите ФИО мамы' />
+                </FormItem>
+
+                <FormItem top='Папа'> 
+                  <Input placeholder='Укажите ФИО папы' />
+                </FormItem>
+
+                <FormItem top='Иное ответсвенное лицо'>
+                  <FormItem top='Кем приходится'>
+                    <Input />
+                  </FormItem>
+                  <FormItem top='Ф.И.О.'>
+                    <Input />
+                  </FormItem>
+                </FormItem>
+
               
                 {/* Компонент ChipsSelect идеально подходит, но какие атрибуты указывать я не понял, наверное там идет взаимодействие с БД
-                src: https://vkcom.github.io/VKUI/#chipsselect */}
+                src: https://vkcom.github.io/VKUI/#chipsselect 
                 <FormItem top="Ваши предпочтения">
-                  {/* <ChipsSelect value={ ] /> */}
+                  <ChipsSelect value={} /> 
                 </FormItem>
-              
+                */}
                 <Div align="center">
                   {/*
                   <Button 

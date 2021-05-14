@@ -27,27 +27,44 @@ import React, { useEffect, useState } from "react";
 import profileImg from '../../img/Kuzmichev_P.jpg'
 
 const ProfileTab = (props) => {
+  console.log(props)
 
   const childOptionsCards = [
-    <Card className="manage-card-item">
+    <Card 
+      className="manage-card-item"
+      onClick={props.openNewTabPanel}
+      data-to='schedule'  
+    >
       <div>
         <div><Icon28BillheadOutline/></div>
         <span>Расписание</span>
       </div>
     </Card>,
-    <Card className="manage-card-item">
+    <Card 
+      className="manage-card-item"
+      onClick={props.openNewTabPanel}
+      data-to='productivity'  
+    >
       <div>
         <div><Icon28GraphOutline/> </div>
         <span>Успеваемость</span>
       </div>
     </Card>,
-    <Card className="manage-card-item">
+    <Card 
+      className="manage-card-item"
+      onClick={props.openNewTabPanel}
+      data-to='achievements'
+    >
       <div>
         <div><Icon28FavoriteOutline/></div>
         <span>Достижения</span>
       </div>
     </Card>,
-    <Card className="manage-card-item">
+    <Card 
+      className="manage-card-item"
+      onClick={props.openNewTabPanel}
+      data-to='teachers'  
+    >
       <div>
         <div><Icon28SmileOutline/></div>
         <span>Преподаватели</span>
@@ -177,7 +194,7 @@ const ProfileTab = (props) => {
                 Редактировать профиль
               </Button>
             }
-            before={<Avatar src={profileImg}/>} // Аватарка пользователя через компонент <Avatar />
+            before={<Avatar size={72} src={profileImg}/>} // Аватарка пользователя через компонент <Avatar />
             description="Поделиться своим профилем" // Эта строка - ссылка
           >
             Кузьмичев Павел Анатольевич

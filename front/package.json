@@ -13,10 +13,10 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-react": "7.13.13",
     "cross-env": "^5.2.1",
     "react-hot-loader": "^4.9.0",
-    "react-scripts": "^4.0.3"
+    "react-scripts": "4.0.1"
   },
   "dependencies": {
     "@vkontakte/icons": "^1.89.0",

@@ -19,6 +19,7 @@ import IconGoal from '../../img/goal.svg'
 import IconCalendar from '../../img/calendar.svg'
 import IconNegativeReview from '../../img/negative-review.svg'
 import IconLoupe from '../../img/loupe.svg'
+import graph from '../../img/graph.png'
 
 const Productivity = (props) => {
 
@@ -28,19 +29,19 @@ const Productivity = (props) => {
   }
 
   return (
-    <Panel>
+    <Panel style={{marginBottom: '40px'}}>
       <PanelHeader
         left={
-          <PanelHeaderBack />
+          <PanelHeaderBack onClick={props.openNewTabPanel} data-to='profile' />
         }
-      align="center"
+        align="center"
       >
         Успеваемость
       </PanelHeader>
         <Group>
           <FormItem top="Статистика">
             <Select
-              placeholder="Выберите секцию"
+              placeholder="Общее"
               options={[{
                 value: '0', label: 'Общее' }, {
                 value: '1', label: 'Программирование на Python' }, {
@@ -51,38 +52,48 @@ const Productivity = (props) => {
             />
           </FormItem>
 
-            <Separator />
+          <Separator />
           <Div>
-          <Title level='1' weight='semibold'>Оценки</Title>
+            <Title level='1' weight='semibold'>Оценки</Title>
           </Div>
           <Div>
-          <Card>
-          <Div style={{
-            display: 'grid',
-            gridTemplateColumns: 'auto auto auto auto auto',
-            gridTemplateRows: 'auto auto',
-            rowGap: '10px',
-            columnGap: '15px',
-            fontSize: '30px',
-            textAlign: 'center'
-          }}>
-            <div>😭</div>
-            <div>😞</div>
-            <div>😐</div>
-            <div>🙂</div>
-            <div>😃</div>
+            <Card>
+              <Div 
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'auto auto auto auto auto',
+                  gridTemplateRows: 'auto auto',
+                  rowGap: '10px',
+                  columnGap: '15px',
+                  fontSize: '30px',
+                  textAlign: 'center'
+                }}
+              >
+                <div>😭</div>
+                <div>😞</div>
+                <div>😐</div>
+                <div>🙂</div>
+                <div>😃</div>
 
-            <div>0</div>
-            <div>2</div>
-            <div>1</div>
-            <div>6</div>
-            <div>3</div>
+                <div>0</div>
+                <div>2</div>
+                <div>1</div>
+                <div>6</div>
+                <div>3</div>
+              </Div>
+            </Card>
           </Div>
-          </Card>
-          </Div>
+          <Placeholder>
 
-          <Placeholder>Тут будет график</Placeholder>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            ><div style={{width: '100%'}}> <img width='100%' src={graph} /></div></div>
 
+          </Placeholder>
+          
           <Separator />
 
           <Div>
@@ -91,8 +102,8 @@ const Productivity = (props) => {
 
           <Div style={{
             display: 'grid',
-            gridTemplateColumns:'auto auto auto auto',
-            gridTemplateRows:'auto auto',
+            gridTemplateColumns:'repeat(auto-fit, minmax(150px, 1fr))',
+            gridTemplateRows:'auto',
             rowGap:'15px',
             columnGap: '32px',
           }}>

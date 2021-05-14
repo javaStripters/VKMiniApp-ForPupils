@@ -1,5 +1,7 @@
-import { SimpleCell, Button, Card, Separator, Header, Title, Div, Panel, Group, PanelHeader, PanelHeaderBack } from '@vkontakte/vkui'
+import { SimpleCell, Button, Card, Separator, Header, Title, Div, Panel, Group, PanelHeader, PanelHeaderBack, Avatar } from '@vkontakte/vkui'
 import React, {useState} from 'react'
+
+import avatar from '../../img/Minaev_P.jpg'
 
 const Schedule = (props) => {
 
@@ -14,8 +16,8 @@ const Schedule = (props) => {
         left={
           <PanelHeaderBack
             label="Назад"
-            onClick={props.go}
-            data-to='profileTab'
+            onClick={props.openNewTabPanel}
+            data-to='profile'
           />
         }
         align="center"
@@ -84,9 +86,9 @@ const Schedule = (props) => {
             <Div style={{padding:'0px'}}>
               <SimpleCell
                 disabled
-                before="Avatar" // Аватарка пользователя через компонент <Avatar />
+                before={<Avatar src={avatar} />} // Аватарка пользователя через компонент <Avatar />
               >
-                {CurrentTeacher}
+                Минаев Павел Андреевич
               </SimpleCell>
             </Div>
         </Group>
